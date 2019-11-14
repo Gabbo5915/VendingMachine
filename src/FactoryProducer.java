@@ -1,7 +1,8 @@
 import beverage.AbstractBeverageChoose;
+import decorate.ICondiments;
 import temperature.Temperature;
 
-public class FactoryProducer {
+public class FactoryProducer implements ICondiments{
 	public static AbstractBeverageChoose getFactory(String choice) {
 		Class<?> cls=null;
 		AbstractBeverageChoose res=null;
@@ -34,5 +35,39 @@ public class FactoryProducer {
 			e.printStackTrace();
 		}
 		return res;
+	}
+
+	@Override
+	public void addSugar() {
+		// TODO Auto-generated method stub
+		System.out.print("Adding sugar");
+		for(int i=0;i<3;i++) {
+			System.out.print(". ");
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		System.out.println("\nSugar Added!");
+		
+	}
+
+	@Override
+	public void addMilk() {
+		// TODO Auto-generated method stub
+		System.out.print("Adding milk");
+		for(int i=0;i<3;i++) {
+			System.out.print(". ");
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		System.out.println("\nMilk Added!");
+		
 	}
 }
